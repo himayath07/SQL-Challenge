@@ -28,9 +28,9 @@ ORDER BY week ASC, patients_request DESC;
 SELECT * 
 FROM staff
 ORDER BY staff_name ASC;
-🧩 Challenge Query
-sql
-Copy code
+
+🧩 Challenge Query sql
+
 -- Retrieve the top 5 weeks with the highest patient refusals across all services,
 -- showing week, service, patients_refused, and patients_request.
 SELECT week, service, patients_refused, patients_request
@@ -42,5 +42,6 @@ LIMIT 5;
 Reflection:
 Day 3 focused on mastering data sorting in SQL.
 Understanding how to organize data output with ORDER BY and LIMIT made data insights clearer and more structured.
+
 
 #SQLWithIDC #IndianDataClub #SQLChallenge #DataAnalytics #LearnSQL #DataScience #UpskillingJourney
