@@ -28,9 +28,10 @@ SELECT *
 FROM patients
 ORDER BY arrival_date DESC
 LIMIT 10;
-🧩 Challenge Query
-sql
-Copy code
+
+
+🧩 Challenge Query  sql
+
 -- Find the 3rd to 7th highest patient satisfaction scores,
 -- showing patient_id, name, service, and satisfaction.
 SELECT patient_id, name, service, satisfaction
@@ -41,5 +42,6 @@ LIMIT 5 OFFSET 2;
 Reflection:
 Day 4 helped me understand how to paginate data efficiently.
 The use of LIMIT and OFFSET made it easier to fetch ranked results and specific data ranges from large datasets.
+
 
 #SQLWithIDC #IndianDataClub #SQLChallenge #LearnSQL #DataScience #Upskilling #DatabaseLearning
