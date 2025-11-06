@@ -29,9 +29,9 @@ WHERE service = 'Emergency';
 SELECT week, patients_request, patients_admitted, service 
 FROM services_weekly
 WHERE patients_request > 100;
-🧩 Challenge Query
-sql
-Copy code
+
+🧩 Challenge Query sql
+
 -- Find all patients admitted to 'Surgery' service with a satisfaction score below 70,
 -- showing their patient_id, name, age, and satisfaction score.
 SELECT patient_id, name, age, satisfaction
@@ -43,3 +43,4 @@ Filtering is a key part of SQL data analysis — today’s challenge improved bo
 
 
 #SQLWithIDC #IndianDataClub #SQLChallenge #DataAnalytics #LearnSQL #DataScience #UpskillingJourney
+
