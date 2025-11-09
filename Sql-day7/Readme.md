@@ -1,0 +1,61 @@
+# 📊 Day 7 (09/11): Filtering Grouped Data with HAVING  
+**21 Days SQL Challenge — Indian Data Club**
+
+---
+
+## 📘 Learnings  
+- Learned how to use the **HAVING** clause to filter results **after aggregation**.  
+- Understood the difference between **WHERE** (filters rows) and **HAVING** (filters groups).  
+- Practiced applying aggregate functions with conditions to identify meaningful patterns.  
+- Strengthened understanding of combining **GROUP BY**, **HAVING**, and **ORDER BY** for deeper analysis.  
+
+---
+
+## 💻 Practice Queries  
+
+```sql
+-- 1️⃣ Find services that have admitted more than 500 patients in total.
+SELECT 
+    service,
+    SUM(patients_admitted) AS total_admitted
+FROM services_weekly
+GROUP BY service
+HAVING SUM(patients_admitted) > 500;
+
+-- 2️⃣ Show services where average patient satisfaction is below 75.
+SELECT
+    service,
+    ROUND(AVG(satisfaction), 2) AS avg_satisfaction
+FROM patients
+GROUP BY service
+HAVING AVG(satisfaction) < 75;
+
+-- 3️⃣ List weeks where total staff presence across all services was less than 50.
+SELECT 
+    week,
+    SUM(present) AS total_staff_present
+FROM staff_schedule
+GROUP BY week
+HAVING SUM(present) < 50
+ORDER BY week;
+
+🧩 Challenge Query
+sql
+
+-- Identify services that refused more than 100 patients in total 
+-- and had an average patient satisfaction below 80.
+SELECT 
+    service,
+    SUM(patients_refused) AS total_refused,
+    ROUND(AVG(patient_satisfaction), 2) AS avg_satisfaction
+FROM services_weekly
+GROUP BY service
+HAVING SUM(patients_refused) > 100 AND AVG(patient_satisfaction) < 80
+ORDER BY total_refused DESC;
+
+💬 Reflection
+Day 7 introduced the HAVING clause, which is essential for applying conditions on aggregated data.
+It helped me filter insights like low satisfaction rates and services with high patient refusals — valuable skills for analytical reporting.
+
+
+#SQLWithIDC #IndianDataClub #SQLChallenge #LearnSQL #DataAnalytics #DataScience #UpskillingJourney
