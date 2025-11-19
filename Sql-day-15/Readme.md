@@ -110,27 +110,27 @@ ORDER BY p.name, sw.week, s.staff_name;
 -- Comprehensive service analysis report for week 20.
 SELECT
     sw.service,
-    SUM(sw.patients_admitted) AS total_patients_admitted,
-    SUM(sw.patients_refused) AS total_refused,
-    ROUND(AVG(sw.patient_satisfaction), 2) AS avg_satisfaction,
-    COUNT(DISTINCT s.staff_id) AS staff_assigned,
-    COUNT(DISTINCT CASE 
-                      WHEN ss.present = 1 AND ss.week = 20 
-                      THEN ss.staff_id 
+    sw.patients_admitted AS total_patients_admitted,
+	sw.patients_refused AS total_refused,
+    ROUND(AVG(sw.patient_satisfaction),2) AS avg_satisfaction,
+	COUNT(DISTINCT s.staff_id) AS staff_assigned,
+	COUNT(DISTINCT CASE 
+                      WHEN ss.present = 1 AND ss.week = 20 THEN ss.staff_id 
                    END) AS staff_present_week20
 FROM services_weekly AS sw
 LEFT JOIN staff AS s
-       ON sw.service = s.service
+    ON sw.service = s.service
 LEFT JOIN staff_schedule AS ss
-       ON s.staff_id = ss.staff_id 
-      AND ss.week = 20
+    ON s.staff_id = ss.staff_id 
+   AND ss.week = 20
 WHERE sw.week = 20 
-GROUP BY sw.service
+GROUP BY sw.service,sw.patients_admitted,sw.patients_refused
 ORDER BY total_patients_admitted DESC;
 
 
 Reflection:
 Day 15 was focused on deep multi-table joins, combining four tables to build analytical reports.
 Week-based conditions, LEFT JOIN logic, and aggregated metrics provided strong real-world reporting experience.
+
 
 #SQLWithIDC #IndianDataClub #SQLChallenge #LearnSQL #DataAnalytics #DataScience #UpskillingJourney
