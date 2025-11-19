@@ -97,8 +97,8 @@ ORDER BY p.name, sw.week, s.staff_name;
 --count of staff present that week. Order by patients admitted descending.
 SELECT
     sw.service,
-    SUM(sw.patients_admitted) AS total_patients_admitted,
-	SUM(sw.patients_refused) AS total_refused,
+    sw.patients_admitted AS total_patients_admitted,
+	sw.patients_refused AS total_refused,
     ROUND(AVG(sw.patient_satisfaction),2) AS avg_satisfaction,
 	COUNT(DISTINCT s.staff_id) AS staff_assigned,
 	COUNT(DISTINCT CASE 
@@ -111,6 +111,7 @@ LEFT JOIN staff_schedule AS ss
     ON s.staff_id = ss.staff_id 
    AND ss.week = 20
 WHERE sw.week = 20 
-GROUP BY sw.service
+GROUP BY sw.service,sw.patients_admitted,sw.patients_refused
 ORDER BY total_patients_admitted DESC;
+
 
